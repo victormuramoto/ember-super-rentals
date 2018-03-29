@@ -1,8 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import EmberObject from '@ember/object';
-import { run } from '@ember/runloop';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | rental-listing', function(hooks) {
@@ -29,9 +28,9 @@ module('Integration | Component | rental-listing', function(hooks) {
     await this.render(hbs`{{rental-listing rental=rentalObj}}`);
 
     assert.equal(this.$('.image.wide').length, 0, 'initially rendered small');
-    run(() => document.querySelector('.image').click());
+    await click('.image');
     assert.equal(this.$('.image.wide').length, 1, 'rendered wide after click');
-    run(() => document.querySelector('.image').click());
+    await click('.image');
     assert.equal(this.$('.image.wide').length, 0, 'rendered small after second click');
   });
 });
