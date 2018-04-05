@@ -5,6 +5,7 @@ import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | list rentals', function(hooks) {
   setupApplicationTest(hooks);
+
   setupMirage(hooks);
 
   test('should show rentals as the home page', async function (assert) {
