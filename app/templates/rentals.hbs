@@ -5,14 +5,14 @@
   {{#link-to "about" class="button"}}
     About Us
   {{/link-to}}
+</div>
 
-{{list-filter
+{{#list-filter
   filter=(action 'filterByCity')
-  as |filteredResults| }}
+ as |filteredResults|}}
   <ui class="results">
     {{#each filteredResults as |rentalUnit| }}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ui>
 {{/list-filter}}
-</div>
